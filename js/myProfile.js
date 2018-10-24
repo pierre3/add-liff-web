@@ -4,20 +4,16 @@ window.onload = function (e) {
         initializeApp(data);
     });
 
-
-
-
-};
-
-function initializeApp(data) {
-    liff.getProfile().then(function(profile)
-    {
+    liff.getProfile().then(function (profile) {
         $('#userimagefield').attr('src', profile.pictureUrl);
         $('#usernamefield').val(profile.displayName);
         $('#messagefield').val(profile.statusMessage);
     }).catch(function (error) {
         window.alert("Error getting profile: " + error.message);
     });
+};
+
+function initializeApp(data) {
     $('#useridfield').val(data.context.userId);
     $('#utouidfield').val(data.context.utouId);
     $('#roomidfield').val(data.context.roomId);
