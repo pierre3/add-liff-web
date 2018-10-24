@@ -11,11 +11,11 @@ function initializeApp(data) {
     $('#roomidfield').val(data.context.roomId);
     $('#groupidfield').val(data.context.groupId);
     
-    liff.getProfile().then(function (profile) {
-        $('#userimagefield').attr('src', profile.pictureUrl);
-        $('#usernamefield').val(profile.displayName);
-        $('#messagefield').val(profile.statusMessage);
-    }).catch(function (error) {
-        window.alert("Error getting profile: " + error.message);
-    });
+//    liff.getProfile().then(function (profile) {
+//        $('#userimagefield').attr('src', profile.pictureUrl);
+//        $('#usernamefield').val(profile.displayName);
+//        $('#messagefield').val(profile.statusMessage);
+//    }).catch(function (error) {
+//        window.alert("Error getting profile: " + error.message);
+//    });
 }
