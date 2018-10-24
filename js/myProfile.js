@@ -1,4 +1,4 @@
-window.onload = function (e) {
+window.onload = function () {
 
     liff.init(function (data) {
         initializeApp(data);
