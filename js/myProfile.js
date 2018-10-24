@@ -11,6 +11,7 @@ window.onload = function (e) {
 
 function initializeApp(data) {
     var profile = liff.getProfile();
+    alert(JSON.parse(profile));
     $('#userimagefield').attr('src', profile.pictureUrl);
     $('#usernamefield').val(profile.displayName);
     $('#messagefield').val(profile.statusMessage);
