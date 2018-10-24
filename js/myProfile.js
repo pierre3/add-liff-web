@@ -15,6 +15,8 @@ function initializeApp(data) {
         $('#userimagefield').attr('src', profile.pictureUrl);
         $('#usernamefield').val(profile.displayName);
         $('#messagefield').val(profile.statusMessage);
+    }).catch(function (error) {
+        window.alert("Error getting profile: " + error.message);
     });
     $('#useridfield').val(data.context.userId);
     $('#utouidfield').val(data.context.utouId);
