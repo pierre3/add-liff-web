@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>LIFF Manager</title>
+</head>
+<body>
+    <h1 class="ui header">LIFF Manager</h1>
+    <div class="ui segment">
+        <h3 class="ui header">Channel Settings</h3>
+        <div class="ui fluid action input">
+            <input id="accessTokenField" type="text" placeholder="Channel Access Token...">
+            <div id="registerButton" class="ui button">Register</div>
+        </div>
+    </div>
+    <div class="ui segment">
+        <h3 class="ui header">LIFF List</h3>
+        <div id="cards" class="ui cards">
+
+        </div>
+    </div>
+    <div class="ui segment">
+        <h3 class="ui header">Add LIFF</h3>
+        <div class="ui form">
+            <div class="field">
+                <label>URL</label>
+                <input type="text" id="url" placeholder="URL" />
+            </div>
+            <div class="inline fields">
+                <label>View Type</label>
+                <div class="field">
+                    <div class="ui radio checkbox">
+                        <input type="radio" name="view-type" id="compact" checked="checked">
+                        <label>Compact</label>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui radio checkbox">
+                        <input type="radio" id="tall" name="view-type">
+                        <label>Tall</label>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui radio checkbox">
+                        <input type="radio" id="full" name="view-type">
+                        <label>Full</label>
+                    </div>
+                </div>
+            </div>
+            <button id="addLiff" class="ui button">Add</button>
+        </div>
+    </div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/addLiff.js"></script>
+</body>
+</html>
