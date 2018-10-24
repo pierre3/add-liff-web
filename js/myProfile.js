@@ -10,7 +10,7 @@ window.onload = function (e) {
 };
 
 function initializeApp(data, profile) {
-    var profile = liff.getProfile();
+    //var profile = liff.getProfile();
     //document.getElementById('userimagefield').src = profile.pictureUrl;
     //document.getElementById('usernamefield').textContent = profile.displayName;
    // document.getElementById('messagefield').textContent = profile.statusMessage;
