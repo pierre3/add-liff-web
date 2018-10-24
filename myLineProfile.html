@@ -1,60 +1,72 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>My LINE Profile</title>
 </head>
+
 <body>
-    <div class="ui piled segment" style="margin:40px 16px 4px 16px">
-        <h2 class="ui header">
-            <i class="user icon"></i>Your profile
-        </h2>
-        <table class="ui definition table">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>Value</th>
-                    <th>Copy To Cripbord</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>language</td>
-                    <td id="languagefield">empty</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>viewType</td>
-                    <td id="viewtypefield">empty</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>User ID</td>
-                    <td id="useridfield">empty</td>
-                    <td><button class="ui icon button" onclick="copyToClipboard('useridfield')"><i class="copy outline icon"></i></button></td>
-                </tr>
-                <tr>
-                    <td>User To User ID</td>
-                    <td id="utouidfield">empty</td>
-                    <td><button class="ui icon button" onclick="copyToClipboard('utouidfield')"><i class="copy outline icon"></i></button></td>
-                </tr>
-                <tr>
-                    <td>Room ID</td>
-                    <td id="roomidfield">empty</td>
-                    <td><button class="ui icon button" onclick="copyToClipboard('roomidfield')"><i class="copy outline icon"></i></button></td>
-                </tr>
-                <tr>
-                    <td>Group ID</td>
-                    <td id="groupidfield">empty</td>
-                    <td><button class="ui icon button" onclick="copyToClipboard('groupidfield')"><i class="copy outline icon"></i></button></td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="ui card" style="margin:16px">
+        <div class="content">
+            <img class="right floated mini ui image" id="userimagefield" src="" />
+            <h1 class="header" id="usernamefield">user name</h1>
+            <div class="meta" id="messagefield">status message</div>
+        </div>
+        <div class="extra content">
+            <div class="ui relaxed divided list">
+                <div class="item">
+                    <div class="right floated content">
+                        <button class="ui icon button" onclick="copyToClipboard('useridfield')">
+                            <i class="copy outline icon"></i>
+                        </button>
+                    </div>
+                    <div class="content">
+                        <a class="header">User ID</a>
+                        <div class="description" id="useridfield">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</div>
+                    </div>
+                </div>
 
+                <div class="item">
+                    <div class="right floated content">
+                        <button class="ui icon button" onclick="copyToClipboard('utouidfield')">
+                            <i class="copy outline icon"></i>
+                        </button>
+                    </div>
+                    <div class="content">
+                        <a class="header">U to U ID</a>
+                        <div class="description" id="utouidfield">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="right floated content">
+                        <button class="ui icon button" onclick="copyToClipboard('roomidfield')">
+                            <i class="copy outline icon"></i>
+                        </button>
+                    </div>
+                    <div class="content">
+                        <a class="header">Room ID</a>
+                        <div class="description" id="roomidfield">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="right floated content">
+                        <button class="ui icon button" onclick="copyToClipboard('groupidfield')">
+                            <i class="copy outline icon"></i>
+                        </button>
+                    </div>
+                    <div class="content">
+                        <a class="header">Group ID</a>
+                        <div class="description" id="groupidfield">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
@@ -62,4 +74,5 @@
     <script src="js/common.js"></script>
     <script src="js/myProfile.js"></script>
 </body>
+
 </html>

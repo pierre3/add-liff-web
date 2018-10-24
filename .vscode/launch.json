@@ -1,0 +1,12 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Launch with file: schema",
+            "url": "File://${workspaceFolder}/myLineProfile.html",
+            "webRoot": "${workspaceFolder}"
+        }
+    ]
+}
