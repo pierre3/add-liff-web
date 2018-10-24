@@ -6,8 +6,8 @@ window.onload = function () {
 };
 
 function initializeApp(data) {
-    $('#useridfield').val(data.context.userId);
-    $('#utouidfield').val(data.context.utouId);
-    $('#roomidfield').val(data.context.roomId);
-    $('#groupidfield').val(data.context.groupId);
+    $('#useridfield').val('user id');
+    $('#utouidfield').val('utou id');
+    $('#roomidfield').val('room id');
+    $('#groupidfield').val('group id');
 }
