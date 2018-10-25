@@ -1,50 +1,60 @@
 const liffUrl = "https://api.line.me/liff/v1/apps";
-const pages = {'My LINE Profile':'myLineProfile.html'};
+const pages = {
+    'My LINE Profile': 'myLineProfile.html'
+};
 
 window.onload = function () {
-    $("#registerButton").on("click", function () {
-        var accessToken = $("#accessTokenField").val();
-        if (accessToken === "" || accessToken === null) {
-            return;
-        }
-        sessionStorage.setItem("ChannelAccessToken", accessToken);
-        listLiff(accessToken);
-    });
+    $("#registerButton").on("click", registerButtonClick);
+    $("#addLiff").on("click", addLiffButtonClick);
 
-    $("#addLiff").on("click", function () {
-        var accessToken = $("#accessTokenField").val();
-        if (accessToken === "" || accessToken === null) {
-            return;
-        }
-
-        var url = $("#url").val();
-        var type = $("input[type='radio']:checked").attr('id');
-        addLiff(accessToken, url, type);
-    });
-
-    $("#url").val(location.href.replace('index.html','') + "myLineProfile.html");
     createLinkList();
+    SetDataFromSessionStorage();
+};
 
+var registerButtonClick = function () {
+    var accessToken = $("#accessTokenField").val();
+    if (accessToken === "" || accessToken === null) {
+        return;
+    }
+    sessionStorage.setItem("ChannelAccessToken", accessToken);
+    listLiff(accessToken);
+};
+
+var addLiffButtonClick = function () {
+    var accessToken = $("#accessTokenField").val();
+    if (accessToken === "" || accessToken === null) {
+        return;
+    }
+
+    var url = $("#url").val();
+    var type = $("input[type='radio']:checked").attr('id');
+    addLiff(accessToken, url, type);
+};
+
+function SetDataFromSessionStorage() {
     var accessToken = this.sessionStorage.getItem("ChannelAccessToken");
     if (accessToken === "" || accessToken === null) {
         return;
     }
     $("#accessTokenField").val(accessToken);
-
     listLiff(accessToken);
+}
 
-};
-
-function createLinkList(){
+function createLinkList() {
     for (key in pages) {
+        var linkUrl = location.href.replace('index.html', '') + pages[key];
         $("#links").append(
             `<div class="item">
     <div class="content">
+    <button class="right floated ui button setUrl" data-url="${linkUrl}">Set to "Add LIFF"</button>
         <a class="header">${key}</a>
-        <a href="${location.href.replace('index.html','') + pages[key]}">${location.href.replace('index.html','') + pages[key]}</div>
+        <a href="${linkUrl}">${linkUrl}</div>
     </div>
 </div>`);
     }
+    $(".setUrl").on("click", function () {
+        $("#url").val($(this).data("url"));
+    });
 }
 
 function listLiff(accessToken) {
