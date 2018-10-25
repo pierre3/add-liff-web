@@ -1,8 +1,18 @@
-window.onload = function (e) {
+window.onload = function () {
 
-    liff.init(function (data) {
-        initializeApp(data);
-    });
+    liff.init(
+        function (data) {
+            initializeApp(data);
+        },
+        function(){
+            $('body').append(
+`<div class="ui info message">
+    <div class="header">
+        Register this page to LINE BOT from the following link.
+    </div>
+    <a href="${location.href.replace('myLineProfile.html','')}">${location.href.replace('myLineProfile.html','')}</a>
+</div>`);
+        });
 };
 
 function initializeApp(data) {
