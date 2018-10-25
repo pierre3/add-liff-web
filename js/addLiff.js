@@ -16,7 +16,6 @@ var registerButtonClick = function () {
     if (accessToken === "" || accessToken === null) {
         return;
     }
-    sessionStorage.setItem("ChannelAccessToken", accessToken);
     listLiff(accessToken);
 };
 
@@ -86,9 +85,18 @@ function listLiff(accessToken) {
             var liffId = $(this).data("liffid");
             copyToClipboard('id-' + liffId);
         });
-
-    }).fail(function () {
-        alert("Failed.");
+        sessionStorage.setItem("ChannelAccessToken", accessToken);
+        $("#registerButton").empty();
+        $("#registerButton").append('<i class="ui green check icon"></i>Verify');
+    }).fail(function (xhr) {
+        $("#registerButton").empty();
+        if (xhr.status !== 404) {
+            $("#registerButton").append('Verify');
+            alert("Failed! Invalid AccessToken.");
+        } else {
+            sessionStorage.setItem("ChannelAccessToken", accessToken);
+            $("#registerButton").append('<i class="ui green check icon"></i>Verify');
+        }
     });
 }
 
