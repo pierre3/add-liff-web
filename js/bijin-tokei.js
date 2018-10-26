@@ -46,20 +46,23 @@ window.onload = function () {
             appendLiffLink('bijin-tokei.html');
         });
 
+    
+    SetImageUrl();
+    $('#picture').on('error',function() {
+        SetImageUrl();    
+    });
+
+    $("#reload").on("click", function(){
+        SetImageUrl();
+    });
+};
+
+function SetImageUrl(){
     var date = new Date();
     var hh = ('0' + date.getHours()).slice(-2);
     var mm = ('0' + date.getMinutes()).slice(-2);
-
     var loc = locationList[getRandomInt(locationList.length - 1)];
     $('#picture').attr('src', baseUrl + loc + "/pc/" + hh + mm + ".jpg");
     $('#location').text(loc);
     $('#time').text(hh+":"+mm);
-    
-    $('#picture').on('error',function() {
-        var loc = locationList[getRandomInt(locationList.length - 1)];
-        $('#picture').attr('src', baseUrl + loc + "/pc/" + hh + mm + ".jpg");
-        $('#location').text(loc);
-        $('#time').text(hh+":"+mm);
-            
-    });
-};
+ }
