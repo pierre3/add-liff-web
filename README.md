@@ -6,5 +6,5 @@ https://pierre3.github.io/add-liff-web/
 
 And hosting a static page LIFF application.
 
-- My LINE Profile (https://pierre3.github.io/add-liff-web/myLineProfile.html)
-- Bijin Tokei (https://pierre3.github.io/add-liff-web/bijin-tokei.html)
+- [My LINE Profile](https://pierre3.github.io/add-liff-web/myLineProfile.html)
+- [Bijin Tokei](https://pierre3.github.io/add-liff-web/bijin-tokei.html)
