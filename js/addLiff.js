@@ -1,17 +1,18 @@
 const liffUrl = "https://api.line.me/liff/v1/apps";
 const pages = {
-    'My LINE Profile': 'myLineProfile.html'
+    'My LINE Profile': 'myLineProfile.html',
+    'Bijin Tokei':'bijin-tokei.html'
 };
 
 window.onload = function () {
-    $("#registerButton").on("click", registerButtonClick);
+    $("#verifyButton").on("click", verifyButtonClick);
     $("#addLiff").on("click", addLiffButtonClick);
 
     createLinkList();
     SetDataFromSessionStorage();
 };
 
-var registerButtonClick = function () {
+var verifyButtonClick = function () {
     var accessToken = $("#accessTokenField").val();
     if (accessToken === "" || accessToken === null) {
         return;
@@ -66,9 +67,13 @@ function listLiff(accessToken) {
         }
 
     }).done(function (result) {
+
+        //--- Add liff cards ----------------
         $("#cards").empty();
         for (let liff of result.apps) {
-            var card = `<div class='card'>
+
+            var card = 
+`<div class='card'>
     <div class='content'>
         <div class='header' id='id-${liff.liffId}'>line://app/${liff.liffId}</div>
         <div class='meta'>View Type: ${liff.view.type}</div>
@@ -79,23 +84,27 @@ function listLiff(accessToken) {
     </div>
 </div >`;
             $("#cards").append(card);
+            
         }
 
         $(".copyUrlButton").on("click", function () {
             var liffId = $(this).data("liffid");
             copyToClipboard('id-' + liffId);
         });
+        //-------------------------------
+
         sessionStorage.setItem("ChannelAccessToken", accessToken);
-        $("#registerButton").empty();
-        $("#registerButton").append('<i class="ui green check icon"></i>Verify');
+        $("#verifyButton").empty();
+        $("#verifyButton").append('<i class="ui green check icon"></i>Verify');
+
     }).fail(function (xhr) {
-        $("#registerButton").empty();
+        $("#verifyButton").empty();
         if (xhr.status !== 404) {
-            $("#registerButton").append('Verify');
+            $("#verifyButton").append('Verify');
             alert("Failed! Invalid AccessToken.");
         } else {
             sessionStorage.setItem("ChannelAccessToken", accessToken);
-            $("#registerButton").append('<i class="ui green check icon"></i>Verify');
+            $("#verifyButton").append('<i class="ui green check icon"></i>Verify');
         }
     });
 }
@@ -115,21 +124,6 @@ function addLiff(accessToken, url, viewType) {
             'Content-Type': 'application/json'
         },
         data: body
-    }).done(function () {
-        listLiff(accessToken);
-    }).fail(function () {
-        alert("Failed.");
-    });
-}
-
-function deleteLiff(liffId) {
-    var accessToken = sessionStorage.getItem("ChannelAccessToken");
-    $.ajax({
-        url: liffUrl + "/" + liffId,
-        type: 'DELETE',
-        headers: {
-            'Authorization': 'Bearer ' + accessToken
-        }
     }).done(function () {
         listLiff(accessToken);
     }).fail(function () {

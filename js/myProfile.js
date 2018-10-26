@@ -5,13 +5,7 @@ window.onload = function () {
             initializeApp(data);
         },
         function(){
-            $('body').append(
-`<div class="ui info message">
-    <div class="header">
-        Register this page to LINE BOT from the following link.
-    </div>
-    <a href="${location.href.replace('myLineProfile.html','')}">${location.href.replace('myLineProfile.html','')}</a>
-</div>`);
+            appendLiffLink('myLineProfile.html');
         });
 };
 

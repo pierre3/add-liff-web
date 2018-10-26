@@ -9,3 +9,18 @@ function copyToClipboard(targetElementId) {
     document.execCommand("Copy");
     alert("Copied. [" + copyTarget.innerHTML + "]");
 }
+
+function appendLiffLink(fileName)
+{
+    $('body').append(
+        `<div class="ui info message">
+            <div class="header">
+                Register this page to LINE BOT from the following link.
+            </div>
+            <a href="${location.href.replace(fileName,'')}">${location.href.replace(fileName,'')}</a>
+        </div>`);
+}
+
+function getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+  }
