@@ -1,5 +1,8 @@
-﻿.ui.segment {
-    margin: 16px 16px 16px 16px;
+﻿body{
+    margin: 16px;
+}
+.ui.segment {
+    margin: 4px 0px 4px 0px;
 }
 
 .description {
