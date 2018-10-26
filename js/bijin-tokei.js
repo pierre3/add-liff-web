@@ -43,7 +43,7 @@ window.onload = function () {
     liff.init(
         function (data) {},
         function () {
-            appendLiffLink('bijin.html');
+            appendLiffLink('bijin-tokei.html');
         });
 
     var date = new Date();
