@@ -1,7 +1,8 @@
 const liffUrl = "https://api.line.me/liff/v1/apps";
 const pages = {
     'My LINE Profile': 'myLineProfile.html',
-    'Bijin Tokei':'bijin-tokei.html'
+    'Bijin Tokei':'bijin-tokei.html',
+    'Pict Paint':'pictPaint.html'
 };
 
 window.onload = function () {
