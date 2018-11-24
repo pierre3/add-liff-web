@@ -40,7 +40,13 @@ window.addEventListener('load',function(){
 });
 
 function handleStageMouseDown(ev){
-    
+    if(ev.isTouch){
+        if(ev.nativeEvent.targetTouches.length > 1){
+            stage.preventSelection = false;
+            return;
+        }
+        stage.preventSelection = true;
+    }
     shape.graphics
         .setStrokeStyle(parseInt(penWidth))
         .beginStroke(penColor)
