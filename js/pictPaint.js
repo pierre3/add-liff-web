@@ -41,11 +41,15 @@ window.addEventListener('load',function(){
 
 function handleStageMouseDown(ev){
     if(ev.isTouch){
-        if(ev.nativeEvent.targetTouches.length > 1){
+        if((stage.preventSelection == true) && (ev.nativeEvent.targetTouches.length > 1)){
             stage.preventSelection = false;
+            stage.dispatchEvent(new Event("touchstart"));
+            return;
+        }else if(stage.preventSelection == false){
+            stage.preventSelection = true;
+            stage.dispatchEvent(new Event("touchstart"));
             return;
         }
-        stage.preventSelection = true;
     }
     shape.graphics
         .setStrokeStyle(parseInt(penWidth))
