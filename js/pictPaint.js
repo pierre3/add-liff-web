@@ -22,7 +22,7 @@ window.addEventListener('load',function(){
     penWidthElem.addEventListener('change',handlePenWidthChange);
 
     if(createjs.Touch.isSupported() == true){
-        createjs.Touch.enable(stage);
+        createjs.Touch.enable(stage,true,true);
     }
 
     stage.addEventListener("stagemousedown",handleStageMouseDown);
@@ -39,6 +39,7 @@ window.addEventListener('load',function(){
 });
 
 function handleStageMouseDown(ev){
+    
     shape.graphics
         .setStrokeStyle(parseInt(penWidth))
         .beginStroke(penColor)
