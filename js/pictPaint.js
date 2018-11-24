@@ -23,6 +23,7 @@ window.addEventListener('load',function(){
 
     if(createjs.Touch.isSupported() == true){
         createjs.Touch.enable(stage,false,true);
+        stage.preventSelection = false;
     }
 
     stage.addEventListener("stagemousedown",handleStageMouseDown);
