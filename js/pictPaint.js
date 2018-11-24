@@ -22,7 +22,7 @@ window.addEventListener('load',function(){
     penWidthElem.addEventListener('change',handlePenWidthChange);
 
     if(createjs.Touch.isSupported() == true){
-        createjs.Touch.enable(stage,true,true);
+        createjs.Touch.enable(stage,false,true);
         stage.preventSelection = false;
     }
 
