@@ -131,24 +131,6 @@ function addLiff(accessToken, url, viewType) {
         },
         data: body
     }).done(function (data) {
-        if(useBle) {
-            $.ajax({
-                url: lineThingsUrl,
-                type: 'POST',
-                hdaders:{
-                    'Authorization': 'Bearer ' + accessToken,
-                    'Content-Type': 'application/json'
-                },
-                data: {
-                    "name": url,
-                    "liffId": data.liffId    
-                }
-            })
-            .done(function(data){
-                $("#addLiffForm").append(`<div class='ui card'><div class='content'>${JSON.stringify(data)}</div></div>`);
-            })
-            .fail(function(){ alert("Register trial product failed.");});
-        }
         listLiff(accessToken);
     }).fail(function () {
         alert("Add liff failed.");
