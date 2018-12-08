@@ -1,4 +1,5 @@
 const liffUrl = "https://api.line.me/liff/v1/apps";
+const lineThingsUrl = "https://api.line.me/things/v1/trial/products";
 const pages = {
     'My LINE Profile': 'myLineProfile.html',
     'Bijin Tokei':'bijin-tokei.html'
@@ -110,12 +111,17 @@ function listLiff(accessToken) {
 }
 
 function addLiff(accessToken, url, viewType) {
-    var body = JSON.stringify({
+    var body="";
+    var useBle = $("#useBle").prop('checked');
+    
+    body = JSON.stringify({
         'view': {
             'type': viewType,
             'url': url
-        }
+        },
+        "features":{"ble":useBle}
     });
+
     $.ajax({
         url: liffUrl,
         type: 'POST',
@@ -124,9 +130,27 @@ function addLiff(accessToken, url, viewType) {
             'Content-Type': 'application/json'
         },
         data: body
-    }).done(function () {
+    }).done(function (data) {
+        if(useBle) {
+            $.ajax({
+                url: lineThingsUrl,
+                type: 'POST',
+                hdaders:{
+                    'Authorization': 'Bearer ' + accessToken,
+                    'Content-Type': 'application/json'
+                },
+                data: {
+                    "name": url,
+                    "liffId": data.liffId    
+                }
+            })
+            .done(function(data){
+                $("#addLiffForm").append(`<div class='ui card'><div class='content'>${JSON.stringify(data)}</div></div>`);
+            })
+            .fail(function(){ alert("Register trial product failed.");});
+        }
         listLiff(accessToken);
     }).fail(function () {
-        alert("Failed.");
+        alert("Add liff failed.");
     });
 }
